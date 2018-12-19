@@ -68,6 +68,11 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# ------------------------------------------------------------------------------
+#
+#                                CUSTOMIZATION START
+#
+# ------------------------------------------------------------------------------
 # Install speedtest-cli
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -75,6 +80,18 @@ RUN apt-get update && \
     easy_install speedtest-cli && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+# Install BlueZ
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    bluetooth bluez-hcidump bluez blueman && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+# ------------------------------------------------------------------------------
+#
+#                                CUSTOMIZATION END
+#
+# ------------------------------------------------------------------------------
 
 # Install java
 ENV JAVA_HOME='/usr/lib/java-8'
