@@ -80,13 +80,6 @@ RUN apt-get update && \
     easy_install speedtest-cli && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-# Install BlueZ
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    bluetooth bluez-hcidump bluez blueman && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
 # ------------------------------------------------------------------------------
 #
 #                                CUSTOMIZATION END
